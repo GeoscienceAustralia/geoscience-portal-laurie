@@ -1,4 +1,4 @@
-//VT: This file tests everything in /AuScope-Portal/src/main/webapp/js/auscope/layer/querier/wfs/knownlayerfactories
+//VT: This file tests everything in /geoscience-portal/src/main/webapp/js/auscope/layer/querier/wfs/knownlayerfactories
 //VT : plus AuscopeParser.js and AuScopeKnownLayerParser.js
 module( "Test auscope.layer.querier.wfs.knownlayerfactories" );
 test( "Test PortrayalBoreholeViewFactory", function() {

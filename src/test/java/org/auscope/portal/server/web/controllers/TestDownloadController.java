@@ -83,7 +83,7 @@ public class TestDownloadController extends PortalTestClass {
      */
     @Test
     public void testDownloadGMLAsZip() throws Exception {
-        final String[] serviceUrls = { "http://localhost:8088/AuScope-Portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs" };
+        final String[] serviceUrls = { "http://localhost:8088/geoscience-portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs" };
         final String dummyGml = "<someGmlHere/>";
         final String dummyJSONResponse = "{\"data\":{\"kml\":\"<someKmlHere/>\", \"gml\":\""
                 + dummyGml + "\"},\"success\":true}";
@@ -139,8 +139,8 @@ public class TestDownloadController extends PortalTestClass {
     public void testDownloadGMLAsZipWithJSONError() throws Exception {
 
         final String[] serviceUrls = {
-                "http://localhost:8088/AuScope-Portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs",
-        "http://localhost:8088/AuScope-Portal/doBoreholeFilter.do?&serviceUrl=http://www.mrt.tas.gov.au:80/web-services/wfs" };
+                "http://localhost:8088/geoscience-portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs",
+        "http://localhost:8088/geoscience-portal/doBoreholeFilter.do?&serviceUrl=http://www.mrt.tas.gov.au:80/web-services/wfs" };
         final String dummyMessage = "hereisadummymessage";
         final String dummyJSONResponse = "{\"msg\": '" + dummyMessage
                 + "',\"success\":false}";
@@ -203,8 +203,8 @@ public class TestDownloadController extends PortalTestClass {
     public void testDownloadGMLAsZipWithException() throws Exception {
 
         final String[] serviceUrls = {
-                "http://localhost:8088/AuScope-Portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs",
-        "http://localhost:8088/AuScope-Portal/doBoreholeFilter.do?&serviceUrl=http://www.mrt.tas.gov.au:80/web-services/wfs" };
+                "http://localhost:8088/geoscience-portal/doBoreholeFilter.do?&serviceUrl=http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs",
+        "http://localhost:8088/geoscience-portal/doBoreholeFilter.do?&serviceUrl=http://www.mrt.tas.gov.au:80/web-services/wfs" };
         final String dummyGml = "<someGmlHere/>";
         final String dummyJSONResponse = "{\"data\":{\"kml\":\"<someKmlHere/>\", \"gml\":\""
                 + dummyGml + "\"},\"success\":true}";

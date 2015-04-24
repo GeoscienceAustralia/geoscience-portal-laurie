@@ -1,15 +1,15 @@
    <div id="header-container">
       <div id="logo">
          <h1>
-            <a href="#" onclick="window.open('about.html','AboutWin','toolbar=no, menubar=no,location=no,resizable=no,scrollbars=yes,statusbar=no,top=100,left=200,height=650,width=450');return false"><img alt="" src="img/img-auscope-banner.gif"></a>
+            <a href="#" onclick="window.open('about.html','AboutWin','toolbar=no, menubar=no,location=no,resizable=no,scrollbars=yes,statusbar=no,top=100,left=200,height=650,width=450');return false"><img alt="" src="img/logo_geoscience4.gif"></a>
          </h1>
       </div>
       <div id="menu">
          <ul >
             <li><a id="help-button">Help</a></li>
-            <li><a href="http://www.auscope.org">AuScope.org</a></li>
-            <li><a href="mailto:cg-portal@csiro.au">Contact Us</a></li>
-            <li><a href="gmap.html">AuScope Discovery Portal</a></li>
+            <li><a href="/index.html">geoscience.gov.au</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="gmap.html">Geoscience Portal</a></li>
 
             <li><a id="hh-userGuide" href="static/user-guide/ug.htm" target="new">User Guide<span></span></a></li>
 
