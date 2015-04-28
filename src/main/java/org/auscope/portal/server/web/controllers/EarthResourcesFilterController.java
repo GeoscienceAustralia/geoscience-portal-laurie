@@ -441,7 +441,7 @@ public class EarthResourcesFilterController extends BasePortalController {
         String filter = this.mineralOccurrenceService.getMineralOccurrenceFilter(unescapeCommodityName,
                 bbox);
 
-        String style=this.getStyle(filter, "gsml:MappedFeature", "#8C489F");
+        String style=this.getStyle(filter, "gsml:MappedFeature", "circle", "#ff0000", "#000000", "6");
 
         response.setContentType("text/xml");
 
@@ -484,7 +484,7 @@ public class EarthResourcesFilterController extends BasePortalController {
         }
         String filter = this.mineralOccurrenceService.getMinOccurViewFilter(unescapeCommodityName,minOreAmount,minReserves,minResources, bbox);
 
-        String style=this.getStyle(filter, EarthResourcesDownloadController.MIN_OCCUR_VIEW_TYPE, "#ed9c38");
+        String style=this.getStyle(filter, EarthResourcesDownloadController.MIN_OCCUR_VIEW_TYPE, "circle", "#ffaa00", "#000000", "6");
 
         response.setContentType("text/xml");
 
@@ -530,6 +530,54 @@ public class EarthResourcesFilterController extends BasePortalController {
                 + "</Rule>"
                 + "</FeatureTypeStyle>"
                 + "</UserStyle>" + "</NamedLayer>" + "</StyledLayerDescriptor>";
+        
+        return style;
+    }
+    
+    public String getStyle(String filter, String name, String shape, String fillColor, String strokeColor, String size){             
+        
+        String style = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                + "<StyledLayerDescriptor version=\"1.0.0\" "
+                + "  xmlns:mo=\"http://xmlns.geoscience.gov.au/minoccml/1.0\" "
+                + "  xmlns:er=\"urn:cgi:xmlns:GGIC:EarthResource:1.1\" "
+                + "  xsi:schemaLocation=\"http://www.opengis.net/sld StyledLayerDescriptor.xsd\" "
+                + "  xmlns:ogc=\"http://www.opengis.net/ogc\" "
+                + "  xmlns:xlink=\"http://www.w3.org/1999/xlink\" "
+                + "  xmlns:gml=\"http://www.opengis.net/gml\" "
+                + "  xmlns:gsml=\"urn:cgi:xmlns:CGI:GeoSciML:2.0\" "
+                + "  xmlns:sld=\"http://www.opengis.net/sld\" "
+                + "  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
+                + "  >"
+                + "<NamedLayer>" + "<Name>" + name + "</Name>"
+                + "<UserStyle>" + "<Name>portal-style</Name>"
+                + "<Title>" + name + "</Title>"
+                + "<Abstract>EarthResource</Abstract>"
+                + "<IsDefault>1</IsDefault>" + "<FeatureTypeStyle>"
+                + "<Rule>"
+                + "<Name>" + name + "</Name>"
+                + "<Abstract>" + name + "</Abstract>"
+                + filter
+                + "<PointSymbolizer>"
+                + "<Graphic>"
+                + "<Mark>"
+                + "<WellKnownName>"+ shape + "</WellKnownName>"
+                + "<Fill>"
+                + "<CssParameter name=\"fill\">" + fillColor + "</CssParameter>"
+                + "</Fill>"
+                + "<Stroke>"
+                + "<CssParameter name=\"stroke\">"+strokeColor+"</CssParameter>"
+                + "<CssParameter name=\"stroke-width\">1</CssParameter>"
+                + "</Stroke>"
+                + "</Mark>"
+                + "<Size>"+size+"</Size>"
+                + "</Graphic>"
+                + "</PointSymbolizer>"
+                + "</Rule>"
+                + "</FeatureTypeStyle>"
+                + "</UserStyle>"
+                + "</NamedLayer>" 
+                + "</StyledLayerDescriptor>";
+        
         return style;
     }
 
