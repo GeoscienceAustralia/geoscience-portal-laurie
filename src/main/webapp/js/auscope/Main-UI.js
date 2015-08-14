@@ -1,4 +1,4 @@
-Ext.application({
+	Ext.application({
     name : 'portal',
 
     //Here we build our GUI from existing components - this function should only be assembling the GUI
@@ -79,12 +79,31 @@ Ext.application({
             }
         });
 
-
-
         //Create our KnownLayer store
+        var layersSorter = new Ext.util.Sorter({
+        	sorterFn: function(record1, record2) {
+                var order1 = record1.data.order;
+                    order2 = record2.data.order;
+                return order1 > order2 ? 1 : (order1 < order2 ? -1 : 0);
+            },
+            direction: 'ASC'
+        })
+        var layersGrouper = new Ext.util.Grouper({
+        	groupFn: function(item) {
+        		console.log("layersGrouper - groupFn: ",item.data.group)
+        		return item.data.group;
+            },
+            sorterFn: function(record1, record2) {
+            	console.log("layersGrouper - sorterFn rec1: ",record1.data.name, ", rec2: ",record2.data.name);
+                var order1 = record1.data.order;
+                    order2 = record2.data.order;
+                return order1 > order2 ? 1 : (order1 < order2 ? -1 : 0);
+            },
+            direction: 'ASC'
+        })
         var knownLayerStore = Ext.create('Ext.data.Store', {
             model : 'portal.knownlayer.KnownLayer',
-            groupField: 'group',
+            //groupField: 'group',
             proxy : {
                 type : 'ajax',
                 url : 'getKnownLayers.do',
@@ -93,6 +112,8 @@ Ext.application({
                     rootProperty : 'data'
                 }
             },
+            sorters: [layersSorter],
+            grouper: layersGrouper,
             autoLoad : true
         });
 

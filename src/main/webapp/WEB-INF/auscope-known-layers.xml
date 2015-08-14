@@ -329,6 +329,7 @@
                 <constructor-arg index="1" value="32"/>
             </bean>
         </property>
+        <property name="order" value="10" />
     </bean>
     
      <bean id="knownTypeTimaGeoSample" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
@@ -411,6 +412,7 @@
                 <constructor-arg index="1" value="32"/>
             </bean>
         </property>
+        <property name="order" value="100" />
     </bean>
 
     <bean id="knownTypeBoreholeMSCL" class="org.auscope.portal.view.ResearchDataLayer">
@@ -451,6 +453,7 @@
                 <constructor-arg index="1" value="32"/>
             </bean>
         </property>
+        <property name="order" value="200" />
     </bean>
 
     <bean id="knownTypeSurfaceAftershock" class="org.auscope.portal.view.ResearchDataLayer">
@@ -556,6 +559,7 @@
                 <constructor-arg index="1" value="32"/>
             </bean>
         </property>
+        <property name="order" value="40"/>
     </bean>
     <bean id="knownTypeGSMLBorehole" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
         <constructor-arg name="id" value="gsml-borehole"/>
@@ -584,6 +588,7 @@
                 <constructor-arg index="1" value="32"/>
             </bean>
         </property>
+        <property name="order" value="10"/>
     </bean>
 
     <bean id="knownTypeAster" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
@@ -634,6 +639,7 @@
         <property name="description" value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH."/>
         <property name="group" value="Chile Region IV ASTER Map "/>
         <property name="feature_count" value="1" />
+        <property name="order" value="20" />
     </bean>
 
     <bean id="knownTypeAsterChileWaterIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
@@ -647,6 +653,7 @@
         <property name="description" value="Water content of the surface after removing atmospheric path-length (topography) dependent water vapour using the ASTER GDEM-2 digital elevation model.    Higher levels of surface water (warmer tones) can be related to: (i) wet soil after snow melt; (ii) green vegetation; (iii) hydroscopic minerals like illite and montmorillonite; (iii) and/or groundwater seepage."/>
         <property name="group" value="Chile Region IV ASTER Map "/>
         <property name="feature_count" value="1" />
+        <property name="order" value="110" />
     </bean>
 
 
@@ -661,6 +668,7 @@
         <property name="description" value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH."/>
         <property name="group" value="Chile Region IV ASTER Map "/>
         <property name="feature_count" value="1" />
+        <property name="order" value="120"/>
     </bean>
 
 
@@ -675,6 +683,7 @@
         <property name="description" value="Equivalent to false colour infrared photography and Landsat band colour composite  R:4; G:3; B:2. Green vegetation produces red colour."/>
         <property name="group" value="Chile Region IV ASTER Map "/>
         <property name="feature_count" value="1" />
+        <property name="order" value="400" />
     </bean>
 
 
