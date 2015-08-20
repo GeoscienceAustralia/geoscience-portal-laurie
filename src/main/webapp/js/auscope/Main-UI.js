@@ -1,4 +1,4 @@
-	Ext.application({
+Ext.application({
     name : 'portal',
 
     //Here we build our GUI from existing components - this function should only be assembling the GUI
@@ -103,7 +103,6 @@
         })
         var knownLayerStore = Ext.create('Ext.data.Store', {
             model : 'portal.knownlayer.KnownLayer',
-            //groupField: 'group',
             proxy : {
                 type : 'ajax',
                 url : 'getKnownLayers.do',
