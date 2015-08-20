@@ -71,7 +71,7 @@
                 <ref bean="knownTypeSF0BoreholeNVCL" />             
                 <ref bean="knownTypeSurfaceAftershock" />
                 <!-- Analytics -->
-                <!-- ref bean="knownTypeBouguerGeodetic" />
+                <ref bean="knownTypeBouguerGeodetic" />
                 <ref bean="knownTypeGravAnomalyGeodetic" />
                 <ref bean="knownTypeRadMapTotaldose" />
                 <ref bean="knownTypeMagMap" />
@@ -88,7 +88,7 @@
                 <ref bean="knownTypeGAGravitySurvey" />
                 <ref bean="knownTypeMusgraveAem" />
                 <ref bean="knownTypeWesternAreaAem" />
-                <ref bean="knownTypeAshburtonAem" /-->
+                <ref bean="knownTypeAshburtonAem" />
                 <!-- End Analytics -->
             </list>
         </constructor-arg>
