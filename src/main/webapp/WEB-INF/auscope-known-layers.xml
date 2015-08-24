@@ -1,1409 +1,1498 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-    <bean id="knownTypeMine" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="erml-mine"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="er:MiningFeatureOccurrence"/>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>er:Mine</value>
-                        <value>gsml:MappedFeature</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
+	<bean id="knownTypeMine" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="erml-mine" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="er:MiningFeatureOccurrence" />
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>er:Mine</value>
+						<value>gsml:MappedFeature</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="Earth Resource Mine"/>
-        <property name="description" value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:Mine"/>
-        <property name="group" value="AuScope Earth Resource Services"/>
-        <property name="proxyUrl" value="doMineFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doMineFilterStyle.do"/>
-        <property name="proxyDownloadUrl" value="doMineFilterDownload.do"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/pink-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="1" />
-    </bean>
-    <bean id="knownTypeMineralOccurrence" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="erml-mineraloccurrence"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:MappedFeature"/>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>er:Commodity</value>
-                        <value>er:MineralOccurrence</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
+		<property name="name" value="Earth Resource Mine" />
+		<property name="description"
+			value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:Mine" />
+		<property name="group" value="AuScope Earth Resource Services" />
+		<property name="proxyUrl" value="doMineFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doMineFilterStyle.do" />
+		<property name="proxyDownloadUrl" value="doMineFilterDownload.do" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/pink-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="1" />
+	</bean>
+	<bean id="knownTypeMineralOccurrence" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="erml-mineraloccurrence" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:MappedFeature" />
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>er:Commodity</value>
+						<value>er:MineralOccurrence</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="Earth Resource Mineral Occurrence"/>
-        <property name="description" value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:MineralOccurence"/>
-        <property name="group" value="AuScope Earth Resource Services"/>
-        <property name="proxyUrl" value="doMineralOccurrenceFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doMineralOccurrenceFilterStyle.do"/>
-        <property name="proxyDownloadUrl" value="doMineralOccurrenceFilterDownload.do"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/purple-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="2" />
-    </bean>
-    <bean id="knownTypeMiningActivity" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="erml-miningactivity"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="er:MiningFeatureOccurrence"/>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>er:MiningActivity</value>
-                        <value>gsml:MappedFeature</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
+		<property name="name" value="Earth Resource Mineral Occurrence" />
+		<property name="description"
+			value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:MineralOccurence" />
+		<property name="group" value="AuScope Earth Resource Services" />
+		<property name="proxyUrl" value="doMineralOccurrenceFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doMineralOccurrenceFilterStyle.do" />
+		<property name="proxyDownloadUrl" value="doMineralOccurrenceFilterDownload.do" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/purple-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="2" />
+	</bean>
+	<bean id="knownTypeMiningActivity" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="erml-miningactivity" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="er:MiningFeatureOccurrence" />
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>er:MiningActivity</value>
+						<value>gsml:MappedFeature</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="Earth Resource Mining Activity"/>
-        <property name="description" value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:MiningActivity"/>
-        <property name="group" value="AuScope Earth Resource Services"/>
-        <property name="proxyUrl" value="doMiningActivityFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doMiningActivityFilterStyle.do"/>
-        <property name="proxyDownloadUrl" value="doMiningActivityFilterDownload.do"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/orange-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="3" />
-    </bean>
+		<property name="name" value="Earth Resource Mining Activity" />
+		<property name="description"
+			value="A collection of services that implement the AuScope EarthResourceML v1 Profile for er:MiningActivity" />
+		<property name="group" value="AuScope Earth Resource Services" />
+		<property name="proxyUrl" value="doMiningActivityFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doMiningActivityFilterStyle.do" />
+		<property name="proxyDownloadUrl" value="doMiningActivityFilterDownload.do" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/orange-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="3" />
+	</bean>
 
 
-    <bean id="knownTypeMineralTenements" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="mineral-tenements"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="mt:MineralTenement"/>
-            </bean>
-        </constructor-arg>
+	<bean id="knownTypeMineralTenements" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="mineral-tenements" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="mt:MineralTenement" />
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="Mineral Tenements"/>
-        <property name="description" value="A collection of services that implement the AuScope EarthResourceML v1 Profile for mt:Mineral Tenement"/>
-        <property name="group" value="Tenements"/>
+		<property name="name" value="Mineral Tenements" />
+		<property name="description"
+			value="A collection of services that implement the AuScope EarthResourceML v1 Profile for mt:Mineral Tenement" />
+		<property name="group" value="Tenements" />
 
-        <!-- We don't need proxyUrl as Mineral tenements are WMS and NOT WFS -->
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="getMineralTenementStyle.do"/>
-        <property name="proxyDownloadUrl" value="doMineralTenementDownload.do"/>
-        <!-- <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>-->
-        <property name="order" value="150" />
-    </bean>
-    
-    <bean id="knownTypehydrogeochem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="capdf-hydrogeochem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="public:hydrogeochem"/>
-            </bean>
-        </constructor-arg>
+		<!-- We don't need proxyUrl as Mineral tenements are WMS and NOT WFS -->
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="getMineralTenementStyle.do" />
+		<property name="proxyDownloadUrl" value="doMineralTenementDownload.do" />
+		<!-- <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"/> 
+			<property name="iconAnchor"> <bean class="java.awt.Point"> <constructor-arg 
+			index="0" value="16"/> <constructor-arg index="1" value="32"/> </bean> </property> 
+			<property name="iconSize"> <bean class="java.awt.Dimension"> <constructor-arg 
+			index="0" value="32"/> <constructor-arg index="1" value="32"/> </bean> </property> -->
+		<property name="order" value="150" />
+	</bean>
 
-        <property name="name" value="Hydrogeochemistry"/>
-        <property name="description" value="Northern Yilgarn Hydrogeochemistry "/>
-        <property name="group" value="Northern Yilgarn Hydrogeochemistry "/>
+	<bean id="knownTypehydrogeochem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="capdf-hydrogeochem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="public:hydrogeochem" />
+			</bean>
+		</constructor-arg>
 
-        <!-- We don't need proxyUrl as capdf hydrogeochem are WMS and NOT WFS -->
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="getCapdfHydroGeoChemStyle.do"/>
-        <property name="proxyDownloadUrl" value="doCapdfHydroGeoChemDownload.do"/>
-        <property name="order" value="160" />   
-    </bean>
+		<property name="name" value="Hydrogeochemistry" />
+		<property name="description" value="Northern Yilgarn Hydrogeochemistry " />
+		<property name="group" value="Northern Yilgarn Hydrogeochemistry " />
 
-    <bean id="knownTypeMineralOccurrenceView" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="mineral-occ-view"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="mo:MinOccView"/>
-            </bean>
-        </constructor-arg>
+		<!-- We don't need proxyUrl as capdf hydrogeochem are WMS and NOT WFS -->
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="getCapdfHydroGeoChemStyle.do" />
+		<property name="proxyDownloadUrl" value="doCapdfHydroGeoChemDownload.do" />
+		<property name="order" value="160" />
+	</bean>
 
-        <property name="name" value="Mineral Occurrence View"/>
-        <property name="description" value="A collection of services that implement the AuScope EarthResourceML v1 Profile for mo:MinOccView"/>
-        <property name="group" value="AuScope Earth Resource Services"/>
-        <!-- We don't need proxyUrl as Mineral tenements are WMS and NOT WFS -->
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doMinOccurViewFilterStyle.do"/>
-        <property name="proxyDownloadUrl" value="downloadMinOccurView.do"/>
+	<bean id="knownTypeMineralOccurrenceView" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="mineral-occ-view" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="mo:MinOccView" />
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Mineral Occurrence View" />
+		<property name="description"
+			value="A collection of services that implement the AuScope EarthResourceML v1 Profile for mo:MinOccView" />
+		<property name="group" value="AuScope Earth Resource Services" />
+		<!-- We don't need proxyUrl as Mineral tenements are WMS and NOT WFS -->
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doMinOccurViewFilterStyle.do" />
+		<property name="proxyDownloadUrl" value="downloadMinOccurView.do" />
 		<property name="order" value="4" />
-    </bean>
-
-  
-    <bean id="knownTypeGeotransects" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-geotransects"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="OnshoreSeismicSurveyLines"/>
-            </bean>
-        </constructor-arg>
-
-        <property name="id" value="ga-geotransects"/>
-        <property name="name" value="GA Onshore Seismic Surveys"/>
-        <property name="description" value="The Onshore Seismic Data of Australia is a collection of all land seismic traverses cross the Australian continent and its margins. The data includes raw and processed data in SEGY format. The metadata includes acquisition reports, processing reports, processed images, logs, and so on. The data acquisition was carried out in Australia from 1949-2012 by Geoscience Australia and various partners. The set of reflection and refraction data comprises over 12,000 km of coverage, and provides an insight into the variations in crustal architecture in the varied geological domains. The complete processed dataset was first available for public access in Oct 2013 (http://www.ga.gov.au/minerals/projects/current-projects/seismic-acquisition-processing.html ). The location of seismic traverses is shown by the Gallery link on the webpage. The new survey data will be updated on the webpage by the official data release date. The attribute structure of the dataset has also been revised to be more compatible with the GeoSciML data standard, published by the IUGS Commission for Geoscience Information. The onshore seismic data were collected with partner organizations: Australian Geodynamics Cooperative Research Centre, National Research Facility for Earth Sounding, Australian Nuclear Science and Technology Organisation, Cooperative Research Centre for Greenhouse Gas Technologies, Curtin University of Technology, Geological Survey of New South Wales, NSW Department of Mineral Resources, NSW Department of Primary Industries Mineral Resources, An organisation for a National Earth Science Infrastructure Program, Geological Survey Western Australia, Northern Territory Geological Survey, Primary Industries and Resources South Australia, Predictive Mineral Discovery Cooperative Research Centre, Queensland Geological Survey, GeoScience Victoria Department of Primary Industries, Tasmania Development and Resources, University of Western Australia."/>
-        <property name="order" value="400" />
-    </bean>
-    <bean id="knownTypeReports" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="portal-reports"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="descriptiveKeyword" value="Report"/>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="Reports"/>
-        <property name="description" value="A collection of scientific reports that have been spatially located"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="410" />
-    </bean>
-    <bean id="knownTypeInSarReports" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="portal-InSar-reports"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWTitleFilterRecordSelector">
-                <property name="title" value="InSAR GeoNetwork"/><!-- This matches the title in auscope-registries.xml -->
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="Synthetic Aperture Radar data"/><!-- INSAR -->
-        <property name="description" value="Raw Synthetic Aperture Radar (SAR) data from ERS-1 and ERS-2 satellites. Data is provided in the standardised CEOS format under licence from the European Space Agency (ESA)."/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/red-stars.png"/>
-        <property name="polygonColor" value="#FE2A00,#FF694C" />
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="420" />
-    </bean>
-    <bean id="knownTypeYilgarnGeochemistry" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="yilgarn-geochem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:GeologicUnit"/>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>omx:ObservationProcess</value>
-                        <value>gml:TimeInstant</value>
-                        <value>sa:LocatedSpecimen</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="Yilgarn Laterite Geochemistry"/>
-        <property name="description" value="A collection of detailed information about all analytes that were detected at a specific location"/>
-        <property name="proxyUrl" value="doYilgarnGeochemistry.do"/>
-        <property name="proxyCountUrl" value="doYilgarnGeochemistryCount.do"/>
-        <property name="proxyStyleUrl" value=""/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="430" />
-    </bean>
-    <bean id="knownTypeBoreholeNvcl" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="nvcl-borehole"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:Borehole"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs</value>
-                        <value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
-                        <value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
-                        <value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs</value>
-                        <value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
-                        <value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
-                        <value>http://geology.data.nt.gov.au:80/geoserver/wfs</value>
-                        <value>http://auscope.dpi.nsw.gov.au:80/geoserver/wfs</value>
-                        <value>https://sarigdata.pir.sa.gov.au/nvcl/geoserver/wfs</value>
-                        <value>http://geology-uat.information.qld.gov.au/geoserver/wfs</value>
-                        <value>http://geology.information.qld.gov.au/geoserver/wfs</value>
-                        <value>http://geology.data.vic.gov.au/nvcl/wfs</value>
-                        <!--<value>https://services-test/nvcl/geoserver/wfs</value>-->
-                    </list>
-                </constructor-arg>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>sa:SamplingFeatureCollection</value>
-                        <value>om:GETPUBLISHEDSYSTEMTSA</value>
-                        <value>nvcl:scannedBorehole</value>
-                        <value>nvcl:ScannedBoreholeCollection</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="National Virtual Core Library"/>
-        <property name="group" value="Boreholes"/>
-        <property name="description" value="A collection of services implementing the National Virtual Core Library Profile v1 for gsml:Borehole and a collection of observations"/>
-        <property name="proxyUrl" value="doNVCLFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/blu-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="50" />
-    </bean>
-    
-     <bean id="knownTypeTimaGeoSample" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="tima-geosample"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="tima:geosample_and_mineralogy"/>                           
-            </bean>
-        </constructor-arg>
-        <property name="name" value="TESCAN TIMA"/>
-        <property name="group" value="JdLC Mineralogy Library"/>
-        <property name="description" value="A collection of the results published from TIMA"/>
-        <property name="proxyUrl" value="doTIMAGeoSample.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/grn-circle.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="180" />
-    </bean>
-
-    <bean id="knownTypeSF0BoreholeNVCL" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="sf0-borehole-nvcl"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsmlp:BoreholeView"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs</value>
-                        <value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
-                        <value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
-                        <value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs</value>
-                        <value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
-                        <value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
-                        <value>http://geology.data.nt.gov.au:80/geoserver/wfs</value>
-                        <value>http://auscope.dpi.nsw.gov.au:80/geoserver/wfs</value>
-                        <value>https://sarigdata.pir.sa.gov.au/nvcl/geoserver/wfs</value>
-                        <value>http://geology-uat.information.qld.gov.au/geoserver/wfs</value>
-                        <value>http://geology.information.qld.gov.au/geoserver/wfs</value>
-                        <value>http://geology.data.vic.gov.au/nvcl/wfs</value>
-                    </list>
-                </constructor-arg>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <!--<value>gsml:Borehole</value>-->
-                        <value>sa:SamplingFeatureCollection</value>
-                        <value>om:GETPUBLISHEDSYSTEMTSA</value>
-                        <value>nvcl:scannedBorehole</value>
-                        <value>nvcl:ScannedBoreholeCollection</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="Borehole View"/>
-        <property name="group" value="Boreholes"/>
-        <property name="description" value="A collection of services implementing the GeoSciML Portrayal Borehole View (gsmlp:BoreholeView)"/>
-        <property name="proxyUrl" value="doBoreholeViewFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doBoreholeViewFilterStyle.do"/>
-        <!-- <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/purple-blank.png"/> -->
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="51" />
-    </bean>
-
-    <bean id="knownTypeBoreholeMSCL" class="org.auscope.portal.view.ResearchDataLayer">
-        <constructor-arg name="id" value="mscl-borehole"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:Borehole"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://sisstest.arrc.csiro.au:8080/agos/wfs</value>
-                        <value>http://meiproc.earthsci.unimelb.edu.au:80/geoserver/wfs</value>
-                    </list>
-                </constructor-arg>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>mscl:scanned_data</value>
-                        <value>sa:SamplingFeatureCollection</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="MSCL Data"/>
-        <property name="description" value="Borehole observations made with a multi-sensor core logger."/>
-        <property name="group" value="University of Melbourne"/>
-        <property name="proxyUrl" value="doBoreholeFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="200" />
-    </bean>
-
-    <bean id="knownTypeSurfaceAftershock" class="org.auscope.portal.view.ResearchDataLayer">
-        <constructor-arg name="id" value="surface-aftershock"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="surfaceaftershock:seismometer"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://meiproc.earthsci.unimelb.edu.au:80/geoserver/wfs</value>
-                    </list>
-                </constructor-arg>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Surface Aftershock Data"/>
-        <property name="description" value="Surface aftershock seismograph continuous data."/>
-        <property name="group" value="University of Melbourne"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="201" />
-    </bean>
-
-    <bean id="knownTypeSeismologyInSchool" class="org.auscope.portal.view.ResearchDataLayer">
-        <constructor-arg name="id" value="seismology-in-schools-site"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.view.knownlayer.IRISSelector">
-                <constructor-arg name="serviceEndpoint" value="http://service.iris.edu"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="IRIS Feed"/>
-        <property name="description" value="Seismographs in Schools data feed from Incorporated Research Institutions for Seismology (IRIS). S network code."/>
-        <property name="group" value="Seismographs in Schools Network"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="300" />
-    </bean>
-
-    <bean id="knownTypeBoreholePressureDB" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="pressuredb-borehole"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:Borehole"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://services-test.auscope.org:80/pressuredb/wfs</value>
-                        <value>http://services.auscope.org:80/pressuredb/wfs</value>
-                    </list>
-                </constructor-arg>
-                <property name="relatedFeatureTypeNames">
-                    <list>
-                        <value>sa:SamplingFeatureCollection</value>
-                        <value>om:GETPUBLISHEDSYSTEMTSA</value>
-                        <value>pdb:rft</value>
-                        <value>pdb:nacl</value>
-                        <value>pdb:t</value>
-                        <value>pdb:cl</value>
-                        <value>pdb:tds</value>
-                        <value>pdb:dst</value>
-                        <value>pdb:fitp</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="Pressure DB"/>
-        <property name="description" value="A collection of services implementing the Pressure DB Profile for gsml:Borehole and a collection of observations"/>
-        <property name="group" value="Boreholes"/>
-        <property name="proxyUrl" value="doBoreholeFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value=""/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/pink-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="52"/>
-    </bean>
-    <bean id="knownTypeGSMLBorehole" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gsml-borehole"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gsml:Borehole"/>
-            </bean>
-        </constructor-arg>
-
-        <property name="name" value="All Boreholes"/>
-        <property name="description" value="A collection of services that support the GeoSciML Borehole feature type."/>
-        <property name="group" value="Boreholes"/>
-        <property name="proxyUrl" value="doBoreholeFilter.do"/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="doFilterStyle.do"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="53" />
-    </bean>
-
-    <bean id="knownTypeGeologicalProvinceContact" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="geologicalProvinceContacts"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="ProvinceContacts"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Province Contacts"/>
-        <property name="description" value="Contacts (boundaries) of the full spatial extent of Australia's geological provinces. 
-        	Where possible, the contacts of provinces have been attributed with information about the source, accuracy, and observation method of those lines."/>
-        <property name="group" value="Geological Provinces"/>
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-    </bean>
-    
-    <bean id="knownTypeGeologicalProvinceMetallogenic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="geologicalProvinceMetallogenic"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="MetallogenicProvinces"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Metallogenic Provinces"/>
-        <property name="description" value="Descriptions and spatial extents of metallogenic provinces of the Australian continent."/>
-        <property name="group" value="Geological Provinces"/>
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-    </bean>
-
-    <bean id="knownTypeAster" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-main"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="E6029ED0-636B-4F91-A6A1-535EBA4B5AD1"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map of Australia"/>
-        <property name="description" value="This is the parent datafile of a datset that comprises a set of 14+ geoscience products made up of mosaiced ASTER scenes across Australia."/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="hidden" value="true"/>
-        <property name="order" value="60" />
-    </bean>
-
-    <bean id="knownTypeAsterAloh" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-aloh"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="1c3f5e49-4241-4511-a3cc-60314ea09414"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map AlOH group composition"/>
-        <property name="description" value="1. Band ratio: B5/B7Blue is well ordered kaolinite, Al-rich muscovite/illite, paragonite, pyrophyllite Red is Al-poor (Si-rich) muscovite (phengite)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="61" />
-    </bean>
-
-    <bean id="knownTypeAsterFerrous" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-ferrous"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="02e4fa4c-cbd0-429f-b487-381282debb8f"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Ferrous iron index"/>
-        <property name="description" value="1. Band ratio: B5/B4Blue is low abundance, Red is high abundance"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="62" />
-    </bean>
-
-    <bean id="knownTypeAsterChileSandToClay" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-chile-SandToClay"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="abf6110f-36b0-4c78-b124-39743392e556"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Unweathered Sand to Clay Index (USCI)"/>
-        <property name="description" value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH."/>
-        <property name="group" value="Chile Region IV ASTER Map "/>
-        <property name="feature_count" value="1" />
-        <property name="order" value="210" />
-    </bean>
-
-    <bean id="knownTypeAsterChileWaterIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-chile-waterindex"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="c289970f-1cb3-464d-ba79-0b8f5faac163"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Surface Water "/>
-        <property name="description" value="Water content of the surface after removing atmospheric path-length (topography) dependent water vapour using the ASTER GDEM-2 digital elevation model.    Higher levels of surface water (warmer tones) can be related to: (i) wet soil after snow melt; (ii) green vegetation; (iii) hydroscopic minerals like illite and montmorillonite; (iii) and/or groundwater seepage."/>
-        <property name="group" value="Chile Region IV ASTER Map "/>
-        <property name="feature_count" value="1" />
-        <property name="order" value="211" />
-    </bean>
+	</bean>
 
 
-    <bean id="knownTypeAsterChileAlOHComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-chile-alohcomp"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="19aa8073-8af1-4dc8-9567-4b809e1052c5"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="AlOH Group Composition "/>
-        <property name="description" value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH."/>
-        <property name="group" value="Chile Region IV ASTER Map "/>
-        <property name="feature_count" value="1" />
-        <property name="order" value="212" />
-    </bean>
+	<bean id="knownTypeGeotransects" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-geotransects" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="OnshoreSeismicSurveyLines" />
+			</bean>
+		</constructor-arg>
+
+		<property name="id" value="ga-geotransects" />
+		<property name="name" value="GA Onshore Seismic Surveys" />
+		<property name="description"
+			value="The Onshore Seismic Data of Australia is a collection of all land seismic traverses cross the Australian continent and its margins. The data includes raw and processed data in SEGY format. The metadata includes acquisition reports, processing reports, processed images, logs, and so on. The data acquisition was carried out in Australia from 1949-2012 by Geoscience Australia and various partners. The set of reflection and refraction data comprises over 12,000 km of coverage, and provides an insight into the variations in crustal architecture in the varied geological domains. The complete processed dataset was first available for public access in Oct 2013 (http://www.ga.gov.au/minerals/projects/current-projects/seismic-acquisition-processing.html ). The location of seismic traverses is shown by the Gallery link on the webpage. The new survey data will be updated on the webpage by the official data release date. The attribute structure of the dataset has also been revised to be more compatible with the GeoSciML data standard, published by the IUGS Commission for Geoscience Information. The onshore seismic data were collected with partner organizations: Australian Geodynamics Cooperative Research Centre, National Research Facility for Earth Sounding, Australian Nuclear Science and Technology Organisation, Cooperative Research Centre for Greenhouse Gas Technologies, Curtin University of Technology, Geological Survey of New South Wales, NSW Department of Mineral Resources, NSW Department of Primary Industries Mineral Resources, An organisation for a National Earth Science Infrastructure Program, Geological Survey Western Australia, Northern Territory Geological Survey, Primary Industries and Resources South Australia, Predictive Mineral Discovery Cooperative Research Centre, Queensland Geological Survey, GeoScience Victoria Department of Primary Industries, Tasmania Development and Resources, University of Western Australia." />
+		<property name="order" value="400" />
+	</bean>
+	<bean id="knownTypeReports" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="portal-reports" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="descriptiveKeyword" value="Report" />
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Reports" />
+		<property name="description"
+			value="A collection of scientific reports that have been spatially located" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="410" />
+	</bean>
+	<bean id="knownTypeInSarReports" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="portal-InSar-reports" />
+		<constructor-arg name="knownLayerSelector">
+			<bean
+				class="org.auscope.portal.core.view.knownlayer.CSWTitleFilterRecordSelector">
+				<property name="title" value="InSAR GeoNetwork" /><!-- This 
+					matches the title in auscope-registries.xml -->
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Synthetic Aperture Radar data" /><!-- 
+			INSAR -->
+		<property name="description"
+			value="Raw Synthetic Aperture Radar (SAR) data from ERS-1 and ERS-2 satellites. Data is provided in the standardised CEOS format under licence from the European Space Agency (ESA)." />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/red-stars.png" />
+		<property name="polygonColor" value="#FE2A00,#FF694C" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="420" />
+	</bean>
+	<bean id="knownTypeYilgarnGeochemistry" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="yilgarn-geochem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:GeologicUnit" />
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>omx:ObservationProcess</value>
+						<value>gml:TimeInstant</value>
+						<value>sa:LocatedSpecimen</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Yilgarn Laterite Geochemistry" />
+		<property name="description"
+			value="A collection of detailed information about all analytes that were detected at a specific location" />
+		<property name="proxyUrl" value="doYilgarnGeochemistry.do" />
+		<property name="proxyCountUrl" value="doYilgarnGeochemistryCount.do" />
+		<property name="proxyStyleUrl" value="" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/grn-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="430" />
+	</bean>
+	<bean id="knownTypeBoreholeNvcl" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="nvcl-borehole" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:Borehole" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs
+						</value>
+						<value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
+						<value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
+						<value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs
+						</value>
+						<value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
+						<value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
+						<value>http://geology.data.nt.gov.au:80/geoserver/wfs</value>
+						<value>http://auscope.dpi.nsw.gov.au:80/geoserver/wfs</value>
+						<value>https://sarigdata.pir.sa.gov.au/nvcl/geoserver/wfs</value>
+						<value>http://geology-uat.information.qld.gov.au/geoserver/wfs
+						</value>
+						<value>http://geology.information.qld.gov.au/geoserver/wfs</value>
+						<value>http://geology.data.vic.gov.au/nvcl/wfs</value>
+						<!--<value>https://services-test/nvcl/geoserver/wfs</value> -->
+					</list>
+				</constructor-arg>
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>sa:SamplingFeatureCollection</value>
+						<value>om:GETPUBLISHEDSYSTEMTSA</value>
+						<value>nvcl:scannedBorehole</value>
+						<value>nvcl:ScannedBoreholeCollection</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="National Virtual Core Library" />
+		<property name="group" value="Boreholes" />
+		<property name="description"
+			value="A collection of services implementing the National Virtual Core Library Profile v1 for gsml:Borehole and a collection of observations" />
+		<property name="proxyUrl" value="doNVCLFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/blu-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="50" />
+	</bean>
+
+	<bean id="knownTypeTimaGeoSample" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="tima-geosample" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName"
+					value="tima:geosample_and_mineralogy" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="TESCAN TIMA" />
+		<property name="group" value="JdLC Mineralogy Library" />
+		<property name="description"
+			value="A collection of the results published from TIMA" />
+		<property name="proxyUrl" value="doTIMAGeoSample.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/grn-circle.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="180" />
+	</bean>
+
+	<bean id="knownTypeSF0BoreholeNVCL" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="sf0-borehole-nvcl" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsmlp:BoreholeView" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs
+						</value>
+						<value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
+						<value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
+						<value>http://nvclwebservices.vm.csiro.au:80/geoserverBH/wfs
+						</value>
+						<value>http://www.mrt.tas.gov.au:80/web-services/wfs</value>
+						<value>http://geossdi.dmp.wa.gov.au:80/services/wfs</value>
+						<value>http://geology.data.nt.gov.au:80/geoserver/wfs</value>
+						<value>http://auscope.dpi.nsw.gov.au:80/geoserver/wfs</value>
+						<value>https://sarigdata.pir.sa.gov.au/nvcl/geoserver/wfs</value>
+						<value>http://geology-uat.information.qld.gov.au/geoserver/wfs
+						</value>
+						<value>http://geology.information.qld.gov.au/geoserver/wfs</value>
+						<value>http://geology.data.vic.gov.au/nvcl/wfs</value>
+					</list>
+				</constructor-arg>
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<!--<value>gsml:Borehole</value> -->
+						<value>sa:SamplingFeatureCollection</value>
+						<value>om:GETPUBLISHEDSYSTEMTSA</value>
+						<value>nvcl:scannedBorehole</value>
+						<value>nvcl:ScannedBoreholeCollection</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Borehole View" />
+		<property name="group" value="Boreholes" />
+		<property name="description"
+			value="A collection of services implementing the GeoSciML Portrayal Borehole View (gsmlp:BoreholeView)" />
+		<property name="proxyUrl" value="doBoreholeViewFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doBoreholeViewFilterStyle.do" />
+		<!-- <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/purple-blank.png"/> -->
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="51" />
+	</bean>
+
+	<bean id="knownTypeBoreholeMSCL" class="org.auscope.portal.view.ResearchDataLayer">
+		<constructor-arg name="id" value="mscl-borehole" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:Borehole" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://sisstest.arrc.csiro.au:8080/agos/wfs</value>
+						<value>http://meiproc.earthsci.unimelb.edu.au:80/geoserver/wfs
+						</value>
+					</list>
+				</constructor-arg>
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>mscl:scanned_data</value>
+						<value>sa:SamplingFeatureCollection</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
+		<property name="name" value="MSCL Data" />
+		<property name="description"
+			value="Borehole observations made with a multi-sensor core logger." />
+		<property name="group" value="University of Melbourne" />
+		<property name="proxyUrl" value="doBoreholeFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="200" />
+	</bean>
+
+	<bean id="knownTypeSurfaceAftershock" class="org.auscope.portal.view.ResearchDataLayer">
+		<constructor-arg name="id" value="surface-aftershock" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName"
+					value="surfaceaftershock:seismometer" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://meiproc.earthsci.unimelb.edu.au:80/geoserver/wfs
+						</value>
+					</list>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Surface Aftershock Data" />
+		<property name="description"
+			value="Surface aftershock seismograph continuous data." />
+		<property name="group" value="University of Melbourne" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="201" />
+	</bean>
+
+	<bean id="knownTypeSeismologyInSchool" class="org.auscope.portal.view.ResearchDataLayer">
+		<constructor-arg name="id" value="seismology-in-schools-site" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.view.knownlayer.IRISSelector">
+				<constructor-arg name="serviceEndpoint" value="http://service.iris.edu" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="IRIS Feed" />
+		<property name="description"
+			value="Seismographs in Schools data feed from Incorporated Research Institutions for Seismology (IRIS). S network code." />
+		<property name="group" value="Seismographs in Schools Network" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/ltblu-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="300" />
+	</bean>
+
+	<bean id="knownTypeBoreholePressureDB" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="pressuredb-borehole" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:Borehole" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://services-test.auscope.org:80/pressuredb/wfs</value>
+						<value>http://services.auscope.org:80/pressuredb/wfs</value>
+					</list>
+				</constructor-arg>
+				<property name="relatedFeatureTypeNames">
+					<list>
+						<value>sa:SamplingFeatureCollection</value>
+						<value>om:GETPUBLISHEDSYSTEMTSA</value>
+						<value>pdb:rft</value>
+						<value>pdb:nacl</value>
+						<value>pdb:t</value>
+						<value>pdb:cl</value>
+						<value>pdb:tds</value>
+						<value>pdb:dst</value>
+						<value>pdb:fitp</value>
+					</list>
+				</property>
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="Pressure DB" />
+		<property name="description"
+			value="A collection of services implementing the Pressure DB Profile for gsml:Borehole and a collection of observations" />
+		<property name="group" value="Boreholes" />
+		<property name="proxyUrl" value="doBoreholeFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/pink-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="52" />
+	</bean>
+	<bean id="knownTypeGSMLBorehole" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gsml-borehole" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gsml:Borehole" />
+			</bean>
+		</constructor-arg>
+
+		<property name="name" value="All Boreholes" />
+		<property name="description"
+			value="A collection of services that support the GeoSciML Borehole feature type." />
+		<property name="group" value="Boreholes" />
+		<property name="proxyUrl" value="doBoreholeFilter.do" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="doFilterStyle.do" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="53" />
+	</bean>
+
+	<bean id="knownTypeGeologicalProvinceContact" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="geologicalProvinceContacts" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="ProvinceContacts" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Province Contacts" />
+		<property name="description"
+			value="Contacts (boundaries) of the full spatial extent of Australia's geological provinces. 
+        	Where possible, the contacts of provinces have been attributed with information about the source, accuracy, and observation method of those lines." />
+		<property name="group" value="Geological Provinces" />
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+	</bean>
+
+	<bean id="knownTypeGeologicalProvinceMetallogenic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="geologicalProvinceMetallogenic" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="MetallogenicProvinces" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Metallogenic Provinces" />
+		<property name="description"
+			value="Descriptions and spatial extents of metallogenic provinces of the Australian continent." />
+		<property name="group" value="Geological Provinces" />
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+	</bean>
+
+	<bean id="knownTypeAster" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-main" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="E6029ED0-636B-4F91-A6A1-535EBA4B5AD1" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map of Australia" />
+		<property name="description"
+			value="This is the parent datafile of a datset that comprises a set of 14+ geoscience products made up of mosaiced ASTER scenes across Australia." />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="hidden" value="true" />
+		<property name="order" value="60" />
+	</bean>
+
+	<bean id="knownTypeAsterAloh" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-aloh" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="1c3f5e49-4241-4511-a3cc-60314ea09414" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map AlOH group composition" />
+		<property name="description"
+			value="1. Band ratio: B5/B7Blue is well ordered kaolinite, Al-rich muscovite/illite, paragonite, pyrophyllite Red is Al-poor (Si-rich) muscovite (phengite)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="61" />
+	</bean>
+
+	<bean id="knownTypeAsterFerrous" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-ferrous" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="02e4fa4c-cbd0-429f-b487-381282debb8f" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Ferrous iron index" />
+		<property name="description"
+			value="1. Band ratio: B5/B4Blue is low abundance, Red is high abundance" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="62" />
+	</bean>
+
+	<bean id="knownTypeAsterChileSandToClay" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-chile-SandToClay" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="abf6110f-36b0-4c78-b124-39743392e556" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Unweathered Sand to Clay Index (USCI)" />
+		<property name="description"
+			value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH." />
+		<property name="group" value="Chile Region IV ASTER Map " />
+		<property name="feature_count" value="1" />
+		<property name="order" value="210" />
+	</bean>
+
+	<bean id="knownTypeAsterChileWaterIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-chile-waterindex" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="c289970f-1cb3-464d-ba79-0b8f5faac163" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Surface Water " />
+		<property name="description"
+			value="Water content of the surface after removing atmospheric path-length (topography) dependent water vapour using the ASTER GDEM-2 digital elevation model.    Higher levels of surface water (warmer tones) can be related to: (i) wet soil after snow melt; (ii) green vegetation; (iii) hydroscopic minerals like illite and montmorillonite; (iii) and/or groundwater seepage." />
+		<property name="group" value="Chile Region IV ASTER Map " />
+		<property name="feature_count" value="1" />
+		<property name="order" value="211" />
+	</bean>
 
 
-    <bean id="knownTypeAsterChileFalseColour" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-chile-falsecolour"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="4f3e3a20-8051-4b85-b135-6e8400ed133d"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="False Colour Composite "/>
-        <property name="description" value="Equivalent to false colour infrared photography and Landsat band colour composite  R:4; G:3; B:2. Green vegetation produces red colour."/>
-        <property name="group" value="Chile Region IV ASTER Map "/>
-        <property name="feature_count" value="1" />
-        <property name="order" value="213" />
-    </bean>
+	<bean id="knownTypeAsterChileAlOHComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-chile-alohcomp" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="19aa8073-8af1-4dc8-9567-4b809e1052c5" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="AlOH Group Composition " />
+		<property name="description"
+			value="Useful for mapping the Al-clay mineral composition of the surface soils and exposed geology.   Kaolin (cooler tones) can be an indicator for lower pH whereas illite-montmorillonite (warmer tones) can be an indicator for higher pH." />
+		<property name="group" value="Chile Region IV ASTER Map " />
+		<property name="feature_count" value="1" />
+		<property name="order" value="212" />
+	</bean>
+
+
+	<bean id="knownTypeAsterChileFalseColour" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-chile-falsecolour" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="4f3e3a20-8051-4b85-b135-6e8400ed133d" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="False Colour Composite " />
+		<property name="description"
+			value="Equivalent to false colour infrared photography and Landsat band colour composite  R:4; G:3; B:2. Green vegetation produces red colour." />
+		<property name="group" value="Chile Region IV ASTER Map " />
+		<property name="feature_count" value="1" />
+		<property name="order" value="213" />
+	</bean>
 
 
 
 
-    <bean id="knownTypeAsterOpaque" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-opaque"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="ab9e636a-86f8-4366-acec-c24db7b72ff5"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Opaque index"/>
-        <property name="description" value="1. Band ratio: B1/B4Blue is low abundance, Red is high abundance(potentially includes  carbon black (e.g. ash), magnetite, Mn oxides, and sulphides in unoxidised envornments"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="63" />
-    </bean>
+	<bean id="knownTypeAsterOpaque" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-opaque" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="ab9e636a-86f8-4366-acec-c24db7b72ff5" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Opaque index" />
+		<property name="description"
+			value="1. Band ratio: B1/B4Blue is low abundance, Red is high abundance(potentially includes  carbon black (e.g. ash), magnetite, Mn oxides, and sulphides in unoxidised envornments" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="63" />
+	</bean>
 
-    <bean id="knownTypeAsterFerricOxideContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-ferric-oxide-content"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="7bc66a7a-5ba0-447e-9a00-bf1ccd84e4f3"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Ferric oxide content"/>
-        <property name="description" value="1. Band ratio: B4/B3Blue is low abundance, Red is high abundance"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="64" />
-    </bean>
+	<bean id="knownTypeAsterFerricOxideContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-ferric-oxide-content" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="7bc66a7a-5ba0-447e-9a00-bf1ccd84e4f3" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Ferric oxide content" />
+		<property name="description"
+			value="1. Band ratio: B4/B3Blue is low abundance, Red is high abundance" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="64" />
+	</bean>
 
-    <bean id="knownTypeAsterFeoh" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-feoh"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="f938456a-926d-4547-b111-093844f8fc5d"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map FeOH group content"/>
-        <property name="description" value="1. Band ratio: (B6+B8)/B7Blue is low content, Red is high content(potentially includes: chlorite, epidote, jarosite, nontronite, gibbsite, gypsum, opal-chalcedony)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="65" />
-    </bean>
+	<bean id="knownTypeAsterFeoh" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-feoh" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="f938456a-926d-4547-b111-093844f8fc5d" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map FeOH group content" />
+		<property name="description"
+			value="1. Band ratio: (B6+B8)/B7Blue is low content, Red is high content(potentially includes: chlorite, epidote, jarosite, nontronite, gibbsite, gypsum, opal-chalcedony)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="65" />
+	</bean>
 
-    <bean id="knownTypeFerricOxideComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-ferric-oxide-comp"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="aa27099f-13dd-4294-8558-595661eeba01"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Ferric oxide composition"/>
-        <property name="description" value="1. Band ratio: B2/B1Blue-cyan is goethite rich, Green is hematite-goethite, Red-yellow is hematite-rich"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="66" />
-    </bean>
+	<bean id="knownTypeFerricOxideComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-ferric-oxide-comp" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="aa27099f-13dd-4294-8558-595661eeba01" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Ferric oxide composition" />
+		<property name="description"
+			value="1. Band ratio: B2/B1Blue-cyan is goethite rich, Green is hematite-goethite, Red-yellow is hematite-rich" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="66" />
+	</bean>
 
-    <bean id="knownTypeGroupIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-group-index"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="ea755cf7-eb59-41d1-86bd-4d1954c93bfe"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Kaolin group index"/>
-        <property name="description" value="B6/B5(potential includes: pyrophyllite, alunite, well-ordered kaolinite)Blue is low content, Red is high content"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="67" />
-    </bean>
+	<bean id="knownTypeGroupIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-group-index" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="ea755cf7-eb59-41d1-86bd-4d1954c93bfe" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Kaolin group index" />
+		<property name="description"
+			value="B6/B5(potential includes: pyrophyllite, alunite, well-ordered kaolinite)Blue is low content, Red is high content" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="67" />
+	</bean>
 
-    <bean id="knownTypeQuartzIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-quartz-index"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="137a4e7e-9633-40d8-9b2f-2d2d1eb15c08"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map TIR Quartz index"/>
-        <property name="description" value="1. Band ratio: B11/(B10+B12)Blue is low quartz contentRed is high quartz content"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="68" />
-    </bean>
+	<bean id="knownTypeQuartzIndex" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-quartz-index" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="137a4e7e-9633-40d8-9b2f-2d2d1eb15c08" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map TIR Quartz index" />
+		<property name="description"
+			value="1. Band ratio: B11/(B10+B12)Blue is low quartz contentRed is high quartz content" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="68" />
+	</bean>
 
-    <bean id="knownTypeMgohContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-mgoh-content"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="a101fef8-2c52-4d62-9b43-0914487af197"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map MgOH group content"/>
-        <property name="description" value="1. Band ratio: (B6+B9/(B7+B8)Blue is low content, Red is high content(potentially includes: calcite, dolomite, magnesite, chlorite, epidote, amphibole, talc, serpentine)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="69" />
-    </bean>
+	<bean id="knownTypeMgohContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-mgoh-content" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="a101fef8-2c52-4d62-9b43-0914487af197" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map MgOH group content" />
+		<property name="description"
+			value="1. Band ratio: (B6+B9/(B7+B8)Blue is low content, Red is high content(potentially includes: calcite, dolomite, magnesite, chlorite, epidote, amphibole, talc, serpentine)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="69" />
+	</bean>
 
-    <bean id="knownTypeGreenVeg" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-green-veg"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="2bd17d05-22f8-4b0d-a318-3eaabc1b5c2a"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map green vegetation content"/>
-        <property name="description" value="Band ratio: B3/B2 Blue is low contentRed is high content"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="70" />
-    </bean>
+	<bean id="knownTypeGreenVeg" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-green-veg" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="2bd17d05-22f8-4b0d-a318-3eaabc1b5c2a" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map green vegetation content" />
+		<property name="description"
+			value="Band ratio: B3/B2 Blue is low contentRed is high content" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="70" />
+	</bean>
 
-    <bean id="knownTypeFerrCarb" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-ferr-carb"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="8601612e-3f3e-4334-9d31-3c6ec30f092a"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Ferrous iron content in MgOH/carbonate"/>
-        <property name="description" value="1. Band ratio: B5/B4Blue is low ferrous iron content in carbonate and MgOH minerals like talc and tremolite.Red is high ferrous iron content in carbonate and MgOH minerals like chlorite and actinolite."/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="71" />
-    </bean>
+	<bean id="knownTypeFerrCarb" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-ferr-carb" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="8601612e-3f3e-4334-9d31-3c6ec30f092a" />
+			</bean>
+		</constructor-arg>
+		<property name="name"
+			value="National ASTER Map Ferrous iron content in MgOH/carbonate" />
+		<property name="description"
+			value="1. Band ratio: B5/B4Blue is low ferrous iron content in carbonate and MgOH minerals like talc and tremolite.Red is high ferrous iron content in carbonate and MgOH minerals like chlorite and actinolite." />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="71" />
+	</bean>
 
-    <bean id="knownTypeMgohGroupComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-mgoh-group-comp"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="8348fe99-0d50-45cd-8a0a-5439e82da833"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map MgOH group composition"/>
-        <property name="description" value="1. Band ratio: B7/B8Blue-cyan is magnesite-dolomite, amphibole, chlorite\tRed is calcite, epidote, amphibole"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="72" />
-    </bean>
+	<bean id="knownTypeMgohGroupComp" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-mgoh-group-comp" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="8348fe99-0d50-45cd-8a0a-5439e82da833" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map MgOH group composition" />
+		<property name="description"
+			value="1. Band ratio: B7/B8Blue-cyan is magnesite-dolomite, amphibole, chlorite\tRed is calcite, epidote, amphibole" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="72" />
+	</bean>
 
-    <bean id="knownTypeFalseColor" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-false-color"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="bfd6b137-7227-47f4-82f0-9e7fb788c507"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map false colour mosaic"/>
-        <property name="description" value="1. False colour RGB composite Red: B3Green: B2Blue: B1(red = green vegetation)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="73" />
-    </bean>
+	<bean id="knownTypeFalseColor" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-false-color" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="bfd6b137-7227-47f4-82f0-9e7fb788c507" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map false colour mosaic" />
+		<property name="description"
+			value="1. False colour RGB composite Red: B3Green: B2Blue: B1(red = green vegetation)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="73" />
+	</bean>
 
-    <bean id="knownTypeRegolithRatios" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-reg-ratio"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="768dcbde-ae8a-440e-9b4b-44624ba4c836"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map Regolith Ratios"/>
-        <property name="description" value="1. 3 band RGB composite Red: B3/B2Green: B3/B7Blue: B4/B7(white = green vegetation)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="74" />
-    </bean>
+	<bean id="knownTypeRegolithRatios" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-reg-ratio" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="768dcbde-ae8a-440e-9b4b-44624ba4c836" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map Regolith Ratios" />
+		<property name="description"
+			value="1. 3 band RGB composite Red: B3/B2Green: B3/B7Blue: B4/B7(white = green vegetation)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="74" />
+	</bean>
 
-    <bean id="knownTypeAlohGroupContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-aloh-group-content"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="b070d1d4-6420-4770-8ca6-3bf4b6682c3d"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map AlOH group content"/>
-        <property name="description" value="1. Band ratio: (B5+B7)/B6Blue is low abundance, Red is high abundance potentially includes: phengite, muscovite, paragonite, lepidolite, illite, brammalite, montmorillonite, beidellite, kaolinite, dickite"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="75" />
-    </bean>
+	<bean id="knownTypeAlohGroupContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-aloh-group-content" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="b070d1d4-6420-4770-8ca6-3bf4b6682c3d" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map AlOH group content" />
+		<property name="description"
+			value="1. Band ratio: (B5+B7)/B6Blue is low abundance, Red is high abundance potentially includes: phengite, muscovite, paragonite, lepidolite, illite, brammalite, montmorillonite, beidellite, kaolinite, dickite" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="75" />
+	</bean>
 
-    <bean id="knownTypeGypsumContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-gypsum-content"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="EB574238-BCB9-4A98-B1C1-71D1D1B0A946"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map TIR Gypsum index"/>
-        <property name="description" value="1. Band ratio: (B10+B12)/B11Blue is low gypsum contentRed is high gypsum content"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="76" />
-    </bean>
+	<bean id="knownTypeGypsumContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-gypsum-content" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="EB574238-BCB9-4A98-B1C1-71D1D1B0A946" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map TIR Gypsum index" />
+		<property name="description"
+			value="1. Band ratio: (B10+B12)/B11Blue is low gypsum contentRed is high gypsum content" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="76" />
+	</bean>
 
-    <bean id="knownTypeSilicaContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="aster-silica-content"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="recordId" value="cca633fe-5cdc-4fea-b77f-71b81c701c47"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="National ASTER Map TIR Silica index"/>
-        <property name="description" value="1. Band ratio: B13/B10Blue is low silica contentRed is high silica content(potentially includes Si-rich minerals, such as quartz, feldspars, Al-clays)"/>
-        <property name="group" value="National ASTER Map of Australia"/>
-        <property name="order" value="77" />
-    </bean>
+	<bean id="knownTypeSilicaContent" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="aster-silica-content" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="recordId" value="cca633fe-5cdc-4fea-b77f-71b81c701c47" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="National ASTER Map TIR Silica index" />
+		<property name="description"
+			value="1. Band ratio: B13/B10Blue is low silica contentRed is high silica content(potentially includes Si-rich minerals, such as quartz, feldspars, Al-clays)" />
+		<property name="group" value="National ASTER Map of Australia" />
+		<property name="order" value="77" />
+	</bean>
 
-    <bean id="knownTypeRemanentAnomalies" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="remanent-anomalies"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="RemAnom:Anomaly"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://remanentanomalies.csiro.au/geoserver/wfs</value>
-                    </list>
-                </constructor-arg>
-            </bean>
-        </constructor-arg>
+	<bean id="knownTypeRemanentAnomalies" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="remanent-anomalies" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="RemAnom:Anomaly" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://remanentanomalies.csiro.au/geoserver/wfs</value>
+					</list>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="AUS5 - Remanent Anomalies"/>
-        <property name="description" value="A collection of services publishing magnetic anomalies"/>
-        <property name="group" value="Magnetics"/>
+		<property name="name" value="AUS5 - Remanent Anomalies" />
+		<property name="description"
+			value="A collection of services publishing magnetic anomalies" />
+		<property name="group" value="Magnetics" />
 
-        <!-- We don't need proxyUrl as Remanent Anomalies are WMS and NOT WFS -->
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="getRemanentAnomaliesStyle.do"/>
-        <property name="proxyDownloadUrl" value="doRemanentAnomaliesDownload.do"/>
+		<!-- We don't need proxyUrl as Remanent Anomalies are WMS and NOT WFS -->
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="getRemanentAnomaliesStyle.do" />
+		<property name="proxyDownloadUrl" value="doRemanentAnomaliesDownload.do" />
 		<property name="order" value="80" />
-    </bean>
+	</bean>
 
-    <bean id="knownTypeRemanentAnomaliesAutoSearch" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="remanent-anomalies-AutoSearch"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="RemAnomAutoSearch:AutoSearchAnomalies"/>
-            </bean>
-        </constructor-arg>
+	<bean id="knownTypeRemanentAnomaliesAutoSearch" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="remanent-anomalies-AutoSearch" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName"
+					value="RemAnomAutoSearch:AutoSearchAnomalies" />
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="AUS5 - AutoSearch Anomalies"/>
-        <property name="description" value="A collection of services publishing magnetic anomalies"/>
-        <property name="group" value="Magnetics"/>
+		<property name="name" value="AUS5 - AutoSearch Anomalies" />
+		<property name="description"
+			value="A collection of services publishing magnetic anomalies" />
+		<property name="group" value="Magnetics" />
 
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="getRemanentAnomaliesAutoSearchStyle.do"/>
-        <property name="proxyDownloadUrl" value="doRemanentAnomaliesAutoSearchDownload.do"/>
-        <property name="order" value="81" />
-    </bean>
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="getRemanentAnomaliesAutoSearchStyle.do" />
+		<property name="proxyDownloadUrl" value="doRemanentAnomaliesAutoSearchDownload.do" />
+		<property name="order" value="81" />
+	</bean>
 
-    <bean id="knownTypeRemanentAnomaliesTMI" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="remanent-anomaliesTMI"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="mag:AUS5 - Total Magnetic Intensity"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="AUS5 - Total Magnetic Intensity"/>
-        <property name="description" value="Total Magnetic Intensity from Magnetic Anomaly Map of Australia (fifth edition), Geoscience Australia and other sources"/>
-        <property name="group" value="Magnetics"/>
-        <property name="order" value="82" />
-    </bean>
+	<bean id="knownTypeRemanentAnomaliesTMI" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="remanent-anomaliesTMI" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName"
+					value="mag:AUS5 - Total Magnetic Intensity" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="AUS5 - Total Magnetic Intensity" />
+		<property name="description"
+			value="Total Magnetic Intensity from Magnetic Anomaly Map of Australia (fifth edition), Geoscience Australia and other sources" />
+		<property name="group" value="Magnetics" />
+		<property name="order" value="82" />
+	</bean>
 
-    <bean id="knownTypeEMAGRemanentAnomalies" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="remanent-anomalies-EMAG"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="RemAnom:Anomaly"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://remanentanomalies.csiro.au/geoserverEMAG/wfs</value>
-                    </list>
-                </constructor-arg>
-            </bean>
-        </constructor-arg>
+	<bean id="knownTypeEMAGRemanentAnomalies" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="remanent-anomalies-EMAG" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="RemAnom:Anomaly" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://remanentanomalies.csiro.au/geoserverEMAG/wfs</value>
+					</list>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
 
-        <property name="name" value="EMAG2 - Remanent Anomalies"/>
-        <property name="description" value="A collection of services publishing magnetic anomalies from the EMAG2 layer"/>
-        <property name="group" value="Magnetics"/>
+		<property name="name" value="EMAG2 - Remanent Anomalies" />
+		<property name="description"
+			value="A collection of services publishing magnetic anomalies from the EMAG2 layer" />
+		<property name="group" value="Magnetics" />
 
-        <!-- We don't need proxyUrl as Remanent Anomalies are WMS and NOT WFS -->
-        <property name="proxyUrl" value=""/>
-        <property name="proxyCountUrl" value=""/>
-        <property name="proxyStyleUrl" value="getRemanentAnomaliesStyle.do"/>
-        <property name="proxyDownloadUrl" value="doRemanentAnomaliesDownload.do"/>
+		<!-- We don't need proxyUrl as Remanent Anomalies are WMS and NOT WFS -->
+		<property name="proxyUrl" value="" />
+		<property name="proxyCountUrl" value="" />
+		<property name="proxyStyleUrl" value="getRemanentAnomaliesStyle.do" />
+		<property name="proxyDownloadUrl" value="doRemanentAnomaliesDownload.do" />
 		<property name="order" value="83" />
-    </bean>
+	</bean>
 
-    <bean id="knownTypeEMAGRemanentAnomaliesTMI" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="remanent-anomalies-EMAGTMI"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="z"/>
-                <constructor-arg name="includeEndpoints" value="true"/>
-                <constructor-arg name="serviceEndpoints">
-                    <list>
-                        <value>http://remanentanomalies.csiro.au/thredds/wms/Emag2/EMAG2.nc</value>
-                    </list>
-                </constructor-arg>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="EMAG2 - Total Magnetic Intensity"/>
-        <property name="description" value="Total Magnetic Intensity from the EMAG2 datasource.http://www.geomag.org/models/emag2.html"/>
-        <property name="group" value="Magnetics"/>
-        <property name="order" value="84" />
-    </bean>
+	<bean id="knownTypeEMAGRemanentAnomaliesTMI" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="remanent-anomalies-EMAGTMI" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="z" />
+				<constructor-arg name="includeEndpoints" value="true" />
+				<constructor-arg name="serviceEndpoints">
+					<list>
+						<value>http://remanentanomalies.csiro.au/thredds/wms/Emag2/EMAG2.nc
+						</value>
+					</list>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		<property name="name" value="EMAG2 - Total Magnetic Intensity" />
+		<property name="description"
+			value="Total Magnetic Intensity from the EMAG2 datasource.http://www.geomag.org/models/emag2.html" />
+		<property name="group" value="Magnetics" />
+		<property name="order" value="84" />
+	</bean>
 
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeSamplingPoint" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-samplingpoint"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="sa:SamplingPoint"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-        <property name="order" value="450" />
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeFeatureCollection"
-    	class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-featurecollection"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="gml:FeatureCollection"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-        
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeLateriteYilgarnGeoChem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-lateriteyilgarngeochem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="Geochem:LateriteYilgarnGeoChem"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPSiteFeatureType" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highpsitefeaturetype"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="highp:HighPSiteFeatureType"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPFeatureType" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highpfeaturetype"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="highp:HighPFeatureType"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPREIronLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highpreironlayer"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="HighP-RE-IronLayer"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPREPhosLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highprephoslayer"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="HighP-RE-PhosLayer"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPSiteIronLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highpsiteironlayer"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="HighP-Site-IronLayer"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeHighPSitePhosLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-highpsitephoslayer"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="HighP-Site-PhosLayer"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypePortals" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-portals"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="descriptiveKeyword" value="Portal"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    <!-- This layer is NOT selectable, it is only used for hiding these features -->
-    <bean id="knownTypeGeoNetworks" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="notused-geonetwork"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="descriptiveKeyword" value="GeoNetwork"/>
-            </bean>
-        </constructor-arg>
-        <property name="hidden" value="true"/>
-    </bean>
-    
-    <!-- Analytic layer, any layer with Analytic in the group name will form the analytic link in portal. -->
-    <bean id="knownTypeBouguerGeodetic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-onshore-bouguer-geodetic"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="onshore_only_Bouguer_geodetic"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Onshore Only Bouguer Geodetic"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia Coverages"/>
-        <property name="order" value="110" />
-    </bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeSamplingPoint" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-samplingpoint" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="sa:SamplingPoint" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+		<property name="order" value="450" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeFeatureCollection" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-featurecollection" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="gml:FeatureCollection" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
 
-    <bean id="knownTypeGravAnomalyGeodetic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-grav-anom-geo"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="onshore_and_offshore_gravity_anomaly_geodetic"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Onshore and Offshore Gravity Anomaly Geodetic"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia Coverages"/>
-        <property name="order" value="111" />
-    </bean>
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeLateriteYilgarnGeoChem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-lateriteyilgarngeochem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName"
+					value="Geochem:LateriteYilgarnGeoChem" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPSiteFeatureType" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highpsitefeaturetype" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="highp:HighPSiteFeatureType" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPFeatureType" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highpfeaturetype" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="highp:HighPFeatureType" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPREIronLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highpreironlayer" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="HighP-RE-IronLayer" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPREPhosLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highprephoslayer" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="HighP-RE-PhosLayer" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPSiteIronLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highpsiteironlayer" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="HighP-Site-IronLayer" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeHighPSitePhosLayer" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-highpsitephoslayer" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="HighP-Site-PhosLayer" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypePortals" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-portals" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="descriptiveKeyword" value="Portal" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
+	<!-- This layer is NOT selectable, it is only used for hiding these features -->
+	<bean id="knownTypeGeoNetworks" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="notused-geonetwork" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="descriptiveKeyword" value="GeoNetwork" />
+			</bean>
+		</constructor-arg>
+		<property name="hidden" value="true" />
+	</bean>
 
-    <bean id="knownTypeMagMap" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-magmap-v5-2010"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="magmap_V5_2010"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="MagMap V5 2010"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia Coverages"/>
-        <property name="order" value="112" />
-    </bean>
+	<!-- Analytic layer, any layer with Analytic in the group name will form 
+		the analytic link in portal. -->
+	<bean id="knownTypeBouguerGeodetic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-onshore-bouguer-geodetic" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName"
+					value="onshore_only_Bouguer_geodetic" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Onshore Only Bouguer Geodetic" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia Coverages" />
+		<property name="order" value="110" />
+	</bean>
 
-    <bean id="knownTypeRadMapTotaldose" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-radmap-totaldose"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="radmap10_filtered_totaldose"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="RadMap Totaldose"/>
-        <property name="description" value=""/>
-        <property name="group" value="Geoscience Australia Coverages"/>
-        <property name="order" value="120" />
-    </bean>
+	<bean id="knownTypeGravAnomalyGeodetic" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-grav-anom-geo" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName"
+					value="onshore_and_offshore_gravity_anomaly_geodetic" />
+			</bean>
+		</constructor-arg>
+		<property name="name"
+			value="Onshore and Offshore Gravity Anomaly Geodetic" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia Coverages" />
+		<property name="order" value="111" />
+	</bean>
 
-    <bean id="knownTypeGocadModels" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gocad-models"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="descriptiveKeyword" value="http://vgl.auscope.org/model/gocad"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="GOCAD Models"/>
-        <property name="description" value="A collection of spatially located 3D models that have been generated using GOCAD"/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="130" />
-    </bean>
+	<bean id="knownTypeMagMap" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-magmap-v5-2010" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="magmap_V5_2010" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="MagMap V5 2010" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia Coverages" />
+		<property name="order" value="112" />
+	</bean>
 
-    <bean id="KnownTypeGeophysicsDatasets" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="geophysics-datasets"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
-                <property name="descriptiveKeyword" value="GeophysicsDataset"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="GA Geophysics Projects"/>
-        <property name="description" value="A collection of spatially located geophysics datasets from GA"/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="iconUrl" value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png"/>
-        <property name="iconAnchor">
-            <bean class="java.awt.Point">
-                <constructor-arg index="0" value="16"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="iconSize">
-            <bean class="java.awt.Dimension">
-                <constructor-arg index="0" value="32"/>
-                <constructor-arg index="1" value="32"/>
-            </bean>
-        </property>
-        <property name="order" value="131" />
-    </bean>
+	<bean id="knownTypeRadMapTotaldose" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-radmap-totaldose" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="radmap10_filtered_totaldose" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="RadMap Totaldose" />
+		<property name="description" value="" />
+		<property name="group" value="Geoscience Australia Coverages" />
+		<property name="order" value="120" />
+	</bean>
 
-    <bean id="knownTypeGswaMagMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gswa-magmerge"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="WA_80m_Mag_Merge_landsea_v1_2012"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Magnetic anomaly grid (80m)"/>
-        <property name="description" value="This grid combines merged magnetic anomaly data from onshore and offshore WA. It is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and over 800 open file Company data sets at various line spacings"/>
-        <property name="group" value="Analytic - Geological Survey of Western Australia"/>
-        <property name="order" value="230" />
-    </bean>
+	<bean id="knownTypeGocadModels" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gocad-models" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="descriptiveKeyword" value="http://vgl.auscope.org/model/gocad" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="GOCAD Models" />
+		<property name="description"
+			value="A collection of spatially located 3D models that have been generated using GOCAD" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="130" />
+	</bean>
 
-    <bean id="knownTypeGswaUMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gswa-umerge"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="WA_100m_U_Merge_v1_2012"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Uranium Radiometrics anomaly grid (100m)"/>
-        <property name="description" value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets."/>
-        <property name="group" value="Analytic - Geological Survey of Western Australia"/>
-        <property name="order" value="231" />
-    </bean>
+	<bean id="KnownTypeGeophysicsDatasets" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="geophysics-datasets" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.CSWRecordSelector">
+				<property name="descriptiveKeyword" value="GeophysicsDataset" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="GA Geophysics Projects" />
+		<property name="description"
+			value="A collection of spatially located geophysics datasets from GA" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="iconUrl"
+			value="http://maps.google.com/mapfiles/kml/paddle/blu-square.png" />
+		<property name="iconAnchor">
+			<bean class="java.awt.Point">
+				<constructor-arg index="0" value="16" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="iconSize">
+			<bean class="java.awt.Dimension">
+				<constructor-arg index="0" value="32" />
+				<constructor-arg index="1" value="32" />
+			</bean>
+		</property>
+		<property name="order" value="131" />
+	</bean>
 
-    <bean id="knownTypeGswaThMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gswa-thmerge"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="WA_100m_Th_Merge_v1_2012"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Thorium Radiometrics anomaly grid (100m)"/>
-        <property name="description" value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets."/>
-        <property name="group" value="Analytic - Geological Survey of Western Australia"/>
-        <property name="order" value="232" />
-    </bean>
+	<bean id="knownTypeGswaMagMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gswa-magmerge" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName"
+					value="WA_80m_Mag_Merge_landsea_v1_2012" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Magnetic anomaly grid (80m)" />
+		<property name="description"
+			value="This grid combines merged magnetic anomaly data from onshore and offshore WA. It is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and over 800 open file Company data sets at various line spacings" />
+		<property name="group"
+			value="Analytic - Geological Survey of Western Australia" />
+		<property name="order" value="230" />
+	</bean>
 
-    <bean id="knownTypeGswaTcMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gswa-tcmerge"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="WA_100m_TC_Merge_v1_2012"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Ternary Radiometrics anomaly grid (100m)"/>
-        <property name="description" value="This merged K, U, Th radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets."/>
-        <property name="group" value="Analytic - Geological Survey of Western Australia"/>
-        <property name="order" value="233" />
-    </bean>
+	<bean id="knownTypeGswaUMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gswa-umerge" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="WA_100m_U_Merge_v1_2012" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Uranium Radiometrics anomaly grid (100m)" />
+		<property name="description"
+			value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets." />
+		<property name="group"
+			value="Analytic - Geological Survey of Western Australia" />
+		<property name="order" value="231" />
+	</bean>
 
-    <bean id="knownTypeGswaKMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="gswa-kmerge"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
-                <constructor-arg name="layerName" value="WA_100m_K_Merge_v1_2012"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Potassium Radiometrics anomaly grid (100m)"/>
-        <property name="description" value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets."/>
-        <property name="group" value="Analytic - Geological Survey of Western Australia"/>
-        <property name="order" value="234" />
-    </bean>
+	<bean id="knownTypeGswaThMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gswa-thmerge" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="WA_100m_Th_Merge_v1_2012" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Thorium Radiometrics anomaly grid (100m)" />
+		<property name="description"
+			value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets." />
+		<property name="group"
+			value="Analytic - Geological Survey of Western Australia" />
+		<property name="order" value="232" />
+	</bean>
 
-     <bean id="knownTypeGAAemSurvey" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:aemsurveys"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Paterson Airbone Electromagnetic Survey"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="order" value="132" />
-    </bean>
+	<bean id="knownTypeGswaTcMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gswa-tcmerge" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="WA_100m_TC_Merge_v1_2012" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Ternary Radiometrics anomaly grid (100m)" />
+		<property name="description"
+			value="This merged K, U, Th radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets." />
+		<property name="group"
+			value="Analytic - Geological Survey of Western Australia" />
+		<property name="order" value="233" />
+	</bean>
 
-    <bean id="knownTypeGARumJungleAEM" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-rum-jungle-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:rum_jungle_aem"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Rum Jungle Airbone Electromagnetic Survey"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="order" value="133" />
-    </bean>
+	<bean id="knownTypeGswaKMerge" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="gswa-kmerge" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WMSSelector">
+				<constructor-arg name="layerName" value="WA_100m_K_Merge_v1_2012" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Potassium Radiometrics anomaly grid (100m)" />
+		<property name="description"
+			value="This radioelement grid is generated from Federal and State government data sets acquired with a line spacing of 500 metres or less and selected open file data sets." />
+		<property name="group"
+			value="Analytic - Geological Survey of Western Australia" />
+		<property name="order" value="234" />
+	</bean>
 
-    <bean id="knownTypeGAWoolnerAEM" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-woolner-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:woolner_aem"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Woolner Airbone Electromagnetic Survey"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="order" value="134" />
-    </bean>
+	<bean id="knownTypeGAAemSurvey" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:aemsurveys" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Paterson Airbone Electromagnetic Survey" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="order" value="132" />
+	</bean>
 
-    <bean id="knownTypeGAGravitySurvey" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="ga-gravity"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:gravitypoints"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Australian Point Gravity"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - Geoscience Australia"/>
-        <property name="order" value="135" />
-    </bean>
-    
-    <bean id="knownTypeMusgraveAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="csiro-musgrave-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:musgrave_aem"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Musgrave Airbone Electromagnetic Survey"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - CSIRO"/>
-        <property name="order" value="140" />
-    </bean>
-    
-    <bean id="knownTypeWesternAreaAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="csiro-western-area-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:western_area_aem"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Western Area Airbone Electromagnetic Survey"/>
-        <property name="description" value="Western Area 70001"/>
-        <property name="group" value="Analytic - CSIRO"/>
-        <property name="order" value="141" />
-    </bean>
-    
-    <bean id="knownTypeAshburtonAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
-        <constructor-arg name="id" value="csiro-ashburton-aem"/>
-        <constructor-arg name="knownLayerSelector">
-            <bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
-                <constructor-arg name="featureTypeName" value="ga:ashburton_aem"/>
-            </bean>
-        </constructor-arg>
-        <property name="name" value="Ashburton Airbone Electromagnetic Survey"/>
-        <property name="description" value=""/>
-        <property name="group" value="Analytic - CSIRO"/>
-        <property name="order" value="142" />
-    </bean>
-    <!-- End of Analytic layer -->
+	<bean id="knownTypeGARumJungleAEM" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-rum-jungle-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:rum_jungle_aem" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Rum Jungle Airbone Electromagnetic Survey" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="order" value="133" />
+	</bean>
+
+	<bean id="knownTypeGAWoolnerAEM" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-woolner-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:woolner_aem" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Woolner Airbone Electromagnetic Survey" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="order" value="134" />
+	</bean>
+
+	<bean id="knownTypeGAGravitySurvey" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="ga-gravity" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:gravitypoints" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Australian Point Gravity" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - Geoscience Australia" />
+		<property name="order" value="135" />
+	</bean>
+
+	<bean id="knownTypeMusgraveAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="csiro-musgrave-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:musgrave_aem" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Musgrave Airbone Electromagnetic Survey" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - CSIRO" />
+		<property name="order" value="140" />
+	</bean>
+
+	<bean id="knownTypeWesternAreaAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="csiro-western-area-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:western_area_aem" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Western Area Airbone Electromagnetic Survey" />
+		<property name="description" value="Western Area 70001" />
+		<property name="group" value="Analytic - CSIRO" />
+		<property name="order" value="141" />
+	</bean>
+
+	<bean id="knownTypeAshburtonAem" class="org.auscope.portal.core.view.knownlayer.KnownLayer">
+		<constructor-arg name="id" value="csiro-ashburton-aem" />
+		<constructor-arg name="knownLayerSelector">
+			<bean class="org.auscope.portal.core.view.knownlayer.WFSSelector">
+				<constructor-arg name="featureTypeName" value="ga:ashburton_aem" />
+			</bean>
+		</constructor-arg>
+		<property name="name" value="Ashburton Airbone Electromagnetic Survey" />
+		<property name="description" value="" />
+		<property name="group" value="Analytic - CSIRO" />
+		<property name="order" value="142" />
+	</bean>
+	<!-- End of Analytic layer -->
 
 </beans>
